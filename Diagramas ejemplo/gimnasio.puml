@@ -1,0 +1,66 @@
+@startuml Gimnasio
+
+title Gimnasio - diagrama de clases
+
+abstract class Socio{
+    -id:number
+    -cuotaMensual:number
+    -nombre:string
+    -planEntrenamiento:PlanEntrenamiento
+    +calcularCuotaMensual()
+}
+
+class SocioRegular{
+    -clasesAdicionales:Clase
+    +calcularCuotaMensual()
+}
+
+class SocioVIP{
+    +calcularCuotaMensual()
+    
+}
+
+class Entrenador{
+    -nombre:string
+    -especialidad:string
+    -sociosAsignados[]:Socio
+}
+
+class PlanEntrenamiento{
+    -nombreSocio:Socio
+    -nombreEntrenador:Entrenador
+    -detalle:string
+}
+class Clase{
+    -nombreClase:string
+    -horario:number
+    -entrenador:Entrenador
+    -capMax:number
+    -costoClase:number
+    +estaCompleta(inscripcion:number):boolean
+    
+}
+
+class Gimnasio{
+    -socios[]:Socio
+    -entrenadores[]:Entrenador
+    -clases[]:Clase
+    +agregarSocio():void
+    +agregarEntrenador():void
+    +inscribirSocio():void
+    +asignarEntrenador():void
+    +calcularTotalIngresosMensuales():number
+    
+}
+
+'Relaciones:
+Socio<|--SocioVIP
+Socio<|--SocioRegular
+Socio-l->Entrenador
+Socio-r->PlanEntrenamiento
+Gimnasio*--Socio
+Gimnasio*--Entrenador
+Gimnasio*-l-Clase
+Clase*--Entrenador
+
+@enduml
