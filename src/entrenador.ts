@@ -1,16 +1,15 @@
-
-import { ISocio } from "./interfaces/ISocio";
+import Socio from "./socio"
 
 export default class Entrenador{
     
     private nombre: string;
     private especialidad: string;
-    private sociosAsignados: ISocio[];
+    private sociosAsignados: Socio[];
 
     constructor(){
         this.nombre = "";
         this.especialidad = "";
-        this.sociosAsignados = new Array<ISocio>();
+        this.sociosAsignados = new Array<Socio>();
     }
 
     public setNombre(nombre:string):void{
@@ -29,11 +28,11 @@ export default class Entrenador{
         return this.especialidad;
     }
 
-    public setSociosAsignados(socio: ISocio): void{
+    public setSociosAsignados(socio: Socio): void{
         this.sociosAsignados.push(socio);
     }
 
-    public getSocioAsignado(): ISocio[] {
+    public getSocioAsignado(): Socio[] {
         return this.sociosAsignados;
     }
 

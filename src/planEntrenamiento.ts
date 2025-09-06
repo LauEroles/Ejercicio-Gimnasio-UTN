@@ -1,15 +1,15 @@
 
 
-import { ISocio } from "./interfaces/ISocio";
-import { IEntrenador } from "./interfaces/IEntrenador";
+import Socio from "./socio"
+import Entrenador from "./entrenador"
 
 export default class PlanEntrenamiento{
 
-    private nombreSocio: ISocio;
-    private nombreEntrenador: IEntrenador;
+    private nombreSocio: Socio;
+    private nombreEntrenador: Entrenador;
     private detalle: string;
 
-    constructor(nombreS: ISocio, nombreE: IEntrenador){
+    constructor(nombreS: Socio, nombreE: Entrenador){
         this.nombreSocio = nombreS;
         this.nombreEntrenador = nombreE;
         this.detalle = "";
@@ -23,11 +23,11 @@ export default class PlanEntrenamiento{
          return this.detalle;
     }
 
-    public getSocio(): ISocio {
+    public getSocio(): Socio {
         return this.nombreSocio;
     }
 
-    public getEntrenador(): IEntrenador {
+    public getEntrenador(): Entrenador {
         return this.nombreEntrenador;
     }
 }
