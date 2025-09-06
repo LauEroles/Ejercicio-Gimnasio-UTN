@@ -9,6 +9,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
+    "typeRoots":["./node_modules/@types/",
+    "./src/@types/"],
     "strictNullChecks": true,
     "skipLibCheck": true,
     "useUnknownInCatchVariables": false,
@@ -20,7 +22,7 @@
   },
   "include": [
     "src/**/*"
-  ],
+, "tests/**/*"  ],
   "exclude": [
     "dist",
     "node_modules",

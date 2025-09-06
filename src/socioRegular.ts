@@ -1,14 +1,19 @@
 import Socio from  "./socio"
 import Clase from  "./clase"
 import PlanEntrenamiento from  "./planEntrenamiento"
+import Entrenador from "./entrenador"
 
 export default class SocioRegular extends Socio{
 
     private clasesAdicionales: Clase[];
 
-    constructor(id:number, planE:PlanEntrenamiento){
-        super(id,planE);
+    constructor(id:number, entrenador:Entrenador,planE:PlanEntrenamiento){
+        super(id,entrenador,planE);
         this.clasesAdicionales=new Array<Clase>();
+    }
+
+    public setClasesAdicionales(clase:Clase):void{
+        this.clasesAdicionales.push(clase);
     }
 
     calcularCuotaMensual():number{

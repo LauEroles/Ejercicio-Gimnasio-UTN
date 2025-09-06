@@ -1,4 +1,5 @@
 import Entrenador from "./entrenador"
+import Socio from "./socio"
 
 
 export default class Clase{
@@ -7,7 +8,9 @@ export default class Clase{
     private horario:number;
     private entrenador:Entrenador;
     private capMax:number;
+    //agregar al diagrama
     private costoClase:number;
+    private alumnos:Socio[];
 
     constructor(entrenador:Entrenador){
         this.nombreClase="";
@@ -15,6 +18,7 @@ export default class Clase{
         this.entrenador=entrenador;
         this.capMax=0;
         this.costoClase=0;
+        this.alumnos=[];
     }
 
 
@@ -57,14 +61,24 @@ export default class Clase{
         }
 
         
-        public estaCompleta(cantSocios:number):boolean{
-           let completa:boolean=false;
-            if(cantSocios>this.capMax){
-                completa=true;
+        public estaCompleta():boolean{
+           let completa:boolean=true;
+            //agregar una excepcion con la cantidad de socios
+            if(this.alumnos.length<this.capMax){
+                completa=false;
             }
             return completa;
         }
+
+        public getAlumnos():Socio[]{
+            return this.alumnos;
+        }
        
+        public setAlumnos(alumno:Socio):void{
+            if (!this.estaCompleta()) {
+                this.alumnos.push(alumno);
+            }
+        }
 
        
 }

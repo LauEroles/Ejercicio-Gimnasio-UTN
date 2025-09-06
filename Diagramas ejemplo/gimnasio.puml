@@ -24,6 +24,7 @@ class Entrenador{
     -nombre:string
     -especialidad:string
     -sociosAsignados[]:Socio
+    +asignarPlanEntrenamiento():PlanEntrenamiento
 }
 
 class PlanEntrenamiento{
