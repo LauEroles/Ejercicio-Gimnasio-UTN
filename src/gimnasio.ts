@@ -103,6 +103,8 @@ export default class Gimnasio{
         let claseBuscada:Clase |undefined = this.buscarClase(clase);
         let socioBuscado:Socio|undefined =this.buscarSocio(socio);
 
+        this.clases.forEach((claseBuscada: Clase)=>{
+
         if (claseBuscada === undefined) {
             throw new Error("La clase que busca no existe");
         }
@@ -113,6 +115,7 @@ export default class Gimnasio{
             
             claseBuscada.setAlumnos(socio);
         }
+        })
 
     }
 

@@ -1,7 +1,7 @@
-import SocioVip from "../src/socioVip"
-import Socio from "../src/socio"
-import PlanEntrenamiento from "../src/planEntrenamiento"
-import Entrenador from "../src/entrenador"
+import SocioVip from "../socioVip"
+import Socio from "../socio"
+import PlanEntrenamiento from "../planEntrenamiento"
+import Entrenador from "../entrenador"
 
 describe("Prueba", ()=>{
 

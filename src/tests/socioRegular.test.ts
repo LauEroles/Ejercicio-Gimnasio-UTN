@@ -1,12 +1,15 @@
 
-import Entrenador from "../src/entrenador"
-import PlanEntrenamiento from "../src/planEntrenamiento"
-import Socio from "../src/socio"
-import SocioRegular from "../src/socioRegular"
-import Gimnasio from "../src/gimnasio"
-import Clase from "../src/clase"
+import Entrenador from "../entrenador"
+import PlanEntrenamiento from "../planEntrenamiento"
+import Socio from "../socio"
+import SocioRegular from "../socioRegular"
+import Gimnasio from "../gimnasio"
+import Clase from "../clase"
 
-describe("Prueba", ()=>{
+describe("Prueba ", ()=>{
+
+
+   it("clase calcularCuotaMensual", ()=>{
 
     const id:number=2;
     const entrenador2:Entrenador=new Entrenador();
@@ -17,6 +20,11 @@ describe("Prueba", ()=>{
 
     gim.inscribirSocio(clase,socioRegular);
 
+
+   }) 
+    
+
+    
     
 
 })
