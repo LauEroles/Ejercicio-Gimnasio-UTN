@@ -98,6 +98,15 @@ export default class Gimnasio{
     }
 
 
+    public socioInscripto(socio:Socio):boolean{
+        return this.buscarSocio(socio)!==undefined;
+    }
+
+
+    public socioInscriptoEnClase(socio:Socio, clase:Clase):boolean{
+        return clase.getAlumnos().includes(socio);
+    }
+
     public inscribirSocio(clase:Clase, socio:Socio):void{
        
         let claseBuscada:Clase |undefined = this.buscarClase(clase);
@@ -105,16 +114,28 @@ export default class Gimnasio{
 
         this.clases.forEach((claseBuscada: Clase)=>{
 
-        if (claseBuscada === undefined) {
-            throw new Error("La clase que busca no existe");
-        }
-        if(claseBuscada.estaCompleta()){
-            throw new Error("La clase a la que se quiere inscribir no dispone de cupos")
-        } 
-        else{   
-            
-            claseBuscada.setAlumnos(socio);
-        }
+            if (claseBuscada === undefined) {
+                throw new Error("La clase que busca no existe");
+            }
+            if(claseBuscada.estaCompleta()){
+                throw new Error("La clase a la que se quiere inscribir no dispone de cupos")
+            } 
+            else{ 
+
+                if(!this.socioInscripto(socio)){
+                    throw new Error("El usuario indicado no existe registrado en el Gym");
+                }else{
+
+                    if(this.socioInscriptoEnClase(socio,claseBuscada)){
+                        throw new Error("El usuario ya esta inscripto en la clase");
+
+                    }else{
+                        claseBuscada.getAlumnos().push(socio);
+                    }
+
+                }       
+                
+            }
         })
 
     }
